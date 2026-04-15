@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Bross Wallet | Registro Oficial</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --bross-orange: #FF6B00; --bross-purple: #A855F7; --bg-dark: #000000; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
+        
+        body, html { 
+            margin: 0; padding: 0; background: var(--bg-dark); color: #fff; 
+            font-family: 'Inter', sans-serif; height: 100%; overflow-x: hidden;
+        }
+
+        .movie-background {
+            position: fixed; inset: 0; z-index: -2;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                        url('https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?q=80&w=2000&auto=format&fit=crop'); 
+            background-size: cover; background-position: center;
+        }
+
+        section {
+            display: none; min-height: 100dvh; width: 100%;
+            flex-direction: column; justify-content: center; align-items: center;
+            padding: 15px;
+        }
+
+        /* LAYOUT RESPONSIVO */
+        .main-container {
+            display: grid; grid-template-columns: 1fr; gap: 20px;
+            width: 100%; max-width: 1100px; align-items: center;
+            margin-top: -40px; /* Sube el formulario en móvil */
+        }
+        @media (min-width: 1024px) {
+            .main-container { grid-template-columns: 1.2fr 0.8fr; text-align: left; margin-top: 0; }
+            section { padding: 40px; }
+        }
+
+        .glass-panel {
+            background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 35px;
+            padding: 25px; box-shadow: 0 40px 100px rgba(0,0,0,0.9);
+        }
+
+        .input-bross {
+            width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+            padding: 16px; font-size: 14px; color: white; border-radius: 18px;
+            transition: 0.3s;
+        }
+        .input-bross:focus { border-color: var(--bross-orange); background: rgba(255,255,255,0.08); }
+
+        .btn-premium {
+            background: #fff; color: #000; border-radius: 20px; padding: 18px;
+            font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+            font-size: 11px; display: flex; align-items: center; justify-content: center; gap: 12px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); width: 100%;
+        }
+
+        /* ODOMETER TIMER */
+        .timer-box {
+            background: #111; border: 2px solid #222; border-radius: 15px;
+            padding: 15px 25px; display: inline-block;
+            box-shadow: inset 0 0 15px rgba(0,0,0,1), 0 0 20px rgba(255,107,0,0.2);
+        }
+
+        .benefit-card-wide {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 30px; padding: 30px; width: 100%;
+            transition: 0.3s ease;
+        }
+
+        #preloader {
+            position: fixed; inset: 0; z-index: 9999; background: #000;
+            display: flex; justify-content: center; align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <img src="Imagenes/LogoBross-Manizales.webp" style="width:90px;" class="animate__animated animate__pulse animate__infinite">
+    </div>
+
+    <div class="movie-background"></div>
+
+    <section id="section-one" class="animate__animated animate__fadeIn">
+        <div class="main-container">
+            <div class="text-content">
+                <div class="flex items-center gap-3 mb-4 justify-center lg:justify-start">
+                    <div class="h-[1px] w-8 bg-orange-500"></div>
+                    <p class="text-[10px] font-black uppercase tracking-[4px] text-orange-500">Paga con Nan@Bross y sumérgete</p>
+                </div>
+                <h1 class="text-5xl lg:text-8xl font-black italic uppercase leading-[0.85] tracking-tighter mb-8">
+                    BROSS<br><span class="text-orange-500">WALLET</span>
+                </h1>
+            </div>
+
+            <div class="glass-panel">
+                <h2 class="text-sm font-black uppercase tracking-tighter mb-6 text-center text-gray-300">Registrese  Ahora  Mismo</h2>
+                <form id="form-main" class="space-y-3">
+                    <input type="text" id="name" placeholder="Tu nombre" required class="input-bross">
+                    <input type="email" id="email" placeholder="Correo electrónico" required class="input-bross">
+                    <div class="grid grid-cols-2 gap-3">
+                        <input type="tel" id="whatsapp" placeholder="WhatsApp" class="input-bross">
+                        <input type="text" id="plate" placeholder="Placa Vehículo" maxlength="7" class="input-bross">
+                    </div>
+                    <button type="submit" class="btn-premium !bg-orange-500 !text-white shadow-2xl shadow-orange-500/40 !mt-6">
+                        Activar Experiencia
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-two" class="animate__animated">
+        <div class="text-center">
+            <h2 class="text-2xl font-black italic uppercase text-orange-500 mb-8">Sincronizando Motores</h2>
+            
+            <div class="timer-box mb-8">
+                <div class="text-6xl font-black tracking-tighter text-white" style="font-family: monospace;" id="timer-display">00:30</div>
+            </div>
+
+            <div class="max-w-xs mx-auto text-center">
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-relaxed">
+                    Vinculando identidad digital con el ecosistema Bross Manizales...
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-three" class="animate__animated">
+        <div class="glass-panel text-center max-w-md w-full">
+            <h2 class="text-4xl font-black italic uppercase leading-none mb-2">WALLET ACTIVA</h2>
+            <div class="h-1 w-12 bg-orange-500 mx-auto mb-8"></div>
+            
+            <div class="mb-10">
+                <span class="text-[9px] font-black text-gray-500 uppercase tracking-[5px]">Bono Inicial</span>
+                <div class="text-6xl font-black text-white tracking-tighter mt-1">20.000 <span class="text-orange-500 text-lg uppercase italic">N@N</span></div>
+            </div>
+
+            <div class="space-y-4">
+                <button onclick="openMailApp()" class="btn-premium !bg-white !text-black">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    Ver mi Bandeja
+                </button>
+                <button onclick="goToEcosystem()" class="btn-premium !bg-transparent !text-white border border-white/20">Entrar al Mundo Bross</button>
+            </div>
+            <p id="user-email-display" class="mt-6 text-[10px] font-bold text-gray-600 uppercase tracking-widest italic"></p>
+        </div>
+    </section>
+
+   <section id="section-four" class="animate__animated !block !h-auto py-20">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="mb-12">
+            <h2 class="text-6xl font-black italic leading-[0.8] mb-4 uppercase">MUNDO<br><span class="text-orange-500">BROSS</span></h2>
+            <div class="h-2 w-24 bg-orange-500 rounded-full"></div>
+        </div>
+
+        <div class="space-y-6">
+            <div class="benefit-card-wide border-purple-500/20 bg-purple-950/10 p-8 rounded-[40px] border">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-black italic uppercase">Wash Morado Gratis</h3>
+                    <span class="bg-purple-600 text-[9px] px-3 py-1 rounded-full font-black">PREMIUM</span>
+                </div>
+                <p class="text-xs text-gray-400 font-bold uppercase leading-relaxed">
+                    Acumula <span class="text-white">160.000 Nan@Bross</span> y recibe un lavado técnico hidrofóbico avanzado sin costo adicional.
+                </p>
+            </div>
+
+            <div class="benefit-card-wide bg-white/5 border border-white/10 p-8 rounded-[40px]">
+                <h3 class="text-2xl font-black italic uppercase mb-6">Conectividad & Confort</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl">
+                        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <span class="text-[10px] font-black uppercase">Fibra Óptica 1000MB</span>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl">
+                        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <span class="text-[10px] font-black uppercase">Tinto Bross Ilimitado</span>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl">
+                        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <span class="text-[10px] font-black uppercase">Zona Xbox & Gaming</span>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl">
+                        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <span class="text-[10px] font-black uppercase">Apuestas & Bross Points</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white text-black p-10 rounded-[40px] text-center">
+                <p class="text-[10px] font-black uppercase tracking-[4px] mb-8 opacity-40">Acceso Nativo</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div onclick="alert('Android: Menú > Instalar')" class="bg-black text-white p-5 rounded-3xl flex flex-col items-center gap-2 cursor-pointer">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.18.18-.344.131-.459.023l-.001-.001c-.105-.11-.15-.297-.15-.563V2.355c0-.266.045-.453.15-.563l.001-.001c.115-.108.279-.157.459.023zM14.53 12.738l2.64 1.524-3.378-3.378-3.64 3.64 4.378-1.786zm.738-4.212l3.64 3.64-2.64-1.524 4.378-1.786-5.378-2.33z"/></svg>
+                        <span class="text-[9px] font-black uppercase">Play Store</span>
+                    </div>
+                    <div onclick="alert('iOS: Compartir > Añadir')" class="bg-black text-white p-5 rounded-3xl flex flex-col items-center gap-2 cursor-pointer">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.31-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.89 1.22-2.11 1.09-3.33-1.04.04-2.3.69-3.05 1.56-.67.77-1.26 2.03-1.1 3.2 1.16.09 2.34-.54 3.06-1.43z"/></svg>
+                        <span class="text-[9px] font-black uppercase">App Store</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-20 text-center border-t border-white/5 pt-10">
+            <p class="text-[10px] font-black uppercase tracking-[3px] text-gray-500">
+                Bross Manizales © 2026 | Hecho con pasión junto a 
+                <a href="https://redsapien.com" target="_blank" class="text-[#FF0000] hover:text-red-400 transition-colors">Red Sapien</a>
+            </p>
+        </footer>
+    </div>
+</section>
+    <script>
+        (function() {
+            const ST_STEP = 'bross_vFinal_step';
+            const ST_TIME = 'bross_vFinal_time';
+            const DURATION = 30;
+
+            function updateUI() {
+                const step = localStorage.getItem(ST_STEP);
+                const email = localStorage.getItem('user_email') || 'tu correo';
+
+                ['section-one', 'section-two', 'section-three', 'section-four'].forEach(s => {
+                    const el = document.getElementById(s);
+                    if(el) el.style.display = 'none';
+                });
+
+                if (step === 'S2') {
+                    document.getElementById('section-two').style.display = 'flex';
+                    runTimer();
+                } else if (step === 'S3') {
+                    document.getElementById('section-three').style.display = 'flex';
+                    document.getElementById('user-email-display').innerText = `Vinculado a: ${email}`;
+                } else if (step === 'S4') {
+                    document.getElementById('section-four').style.display = 'block';
+                } else {
+                    document.getElementById('section-one').style.display = 'flex';
+                }
+            }
+
+            function runTimer() {
+                let start = localStorage.getItem(ST_TIME);
+                if (!start) { start = Date.now(); localStorage.setItem(ST_TIME, start); }
+
+                const clock = setInterval(() => {
+                    const elapsed = Math.floor((Date.now() - start) / 1000);
+                    const rem = DURATION - elapsed;
+                    if (rem <= 0) {
+                        clearInterval(clock);
+                        localStorage.setItem(ST_STEP, 'S3');
+                        location.reload();
+                    } else {
+                        const m = Math.floor(rem / 60).toString().padStart(2, '0');
+                        const s = (rem % 60).toString().padStart(2, '0');
+                        document.getElementById('timer-display').innerText = `${m}:${s}`;
+                    }
+                }, 1000);
+            }
+
+            window.openMailApp = function() {
+                const email = localStorage.getItem('user_email') || "";
+                const domain = email.split('@')[1];
+                if (domain.includes('gmail')) {
+                    window.location.href = "googlegmail://";
+                    setTimeout(() => window.location.href = "https://mail.google.com", 500);
+                } else if (domain.includes('hotmail') || domain.includes('outlook')) {
+                    window.location.href = "ms-outlook://";
+                    setTimeout(() => window.location.href = "https://outlook.live.com", 500);
+                } else { window.location.href = "mailto:"; }
+            };
+
+            window.goToEcosystem = function() {
+                localStorage.setItem(ST_STEP, 'S4');
+                location.reload();
+            };
+
+            const plateInput = document.getElementById('plate');
+if (plateInput) {
+    plateInput.addEventListener('input', (e) => {
+        // 1. Convertimos a mayúsculas y corregimos el filtro para aceptar números del 0 al 9
+        let val = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); 
+        
+        if (val.length > 3) {
+            // 2. Inserta el punto entre el 3er y 4to carácter
+            val = val.slice(0, 3) + '•' + val.slice(3, 6);
+        }
+        
+        // 3. Asignamos el valor procesado al input
+        e.target.value = val;
+    });
+}
+
+            const f = document.getElementById('form-main');
+            if(f) {
+                f.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const btn = f.querySelector('button');
+                    const emailVal = document.getElementById('email').value;
+                    btn.innerText = "SINCRO..."; btn.disabled = true;
+
+                    localStorage.setItem('user_email', emailVal);
+                    
+                    const payload = {
+                        nombre: document.getElementById('name').value,
+                        email: emailVal,
+                        whatsapp: document.getElementById('whatsapp').value,
+                        placa: document.getElementById('plate').value,
+                        puntos: 20000
+                    };
+
+                    try {
+                        await fetch('https://n8n.redsapien.com/webhook/registro-bross', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify(payload)
+                        });
+                    } catch(err) { console.warn("n8n node bypass"); }
+
+                    localStorage.setItem(ST_STEP, 'S2');
+                    localStorage.setItem(ST_TIME, Date.now());
+                    location.reload();
+                });
+            }
+
+            window.addEventListener('load', () => {
+                updateUI();
+                setTimeout(() => {
+                    const p = document.getElementById('preloader');
+                    p.style.opacity = '0';
+                    setTimeout(() => p.remove(), 600);
+                }, 1000);
+            });
+        })();
+    </script>
+</body>
+</html>
